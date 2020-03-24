@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
@@ -11,6 +12,7 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import Favorites from '../Favorites';
 import Filters from '../Filters';
+
 
 import * as ROUTES from '../../constants/routes';
 import {withFirebase} from '../Firebase';

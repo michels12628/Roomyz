@@ -1,22 +1,27 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
 import { withAuthorization } from '../Session';
+
 const AccountPage = () => (
   <div>
-    <h1>My Account</h1>
 
-    <PasswordForgetForm />
-    <PasswordChangeForm />
+    <Container>
+      <h3>Account Settings</h3>
+      <Row>
+        <PasswordForgetForm />
+      </Row>
+      <h3> </h3>
+      <Row>
+        <PasswordChangeForm />
+      </Row>
+    </Container>
 
-    <p> Write your "About Me" here to let others know a little bit about you!</p>
-    <body>
-        <textarea id="AboutMeBox" AboutMe="AboutMe" placeholder="Write about yourself!" maxLength="250"/>
-    <br>
-    </br>
-    <button onClick = "fn1()" id ="SubmitButton"> Publish </button>
-    </body>
-  </div>
+    </div>
 );
 const condition = authUser => !!authUser;
 export default withAuthorization(condition)(AccountPage);

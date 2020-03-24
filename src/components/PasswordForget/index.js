@@ -1,5 +1,6 @@
-
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../Firebase';
@@ -49,20 +50,24 @@ class PasswordForgetFormBase extends Component {
     const isInvalid = email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={this.state.email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <button disabled={isInvalid} type="submit">
-          Reset My Password
-        </button>
+      <Form>
+        <Form.Label>Forgot Password</Form.Label>
 
-        {error && <p>{error.message}</p>}
-      </form>
+        <Form.Group onSubmit={this.onSubmit}>
+          <Form.Control
+            name="email"
+            value={this.state.email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Enter Email"
+          />
+
+        </Form.Group>
+          <Button disabled={isInvalid} type="submit" size="sm">
+            Reset My Password
+        </Button>
+          {error && <p>{error.message}</p>}
+      </Form>
     );
   }
 }
