@@ -12,20 +12,18 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
-  <div>
-    <Container>
-      <h1>SignIn</h1>
-      <Row>
-        <SignInForm />
-      </Row>
-      <Row>
-        <PasswordForgetLink />
-      </Row>
-      <Row>
-        <SignUpLink />
-      </Row>
-    </Container>
-  </div>
+  <Container>
+    <h1>Sign In</h1>
+    <Row>
+      <SignInForm />
+    </Row>
+    <Row>
+      <PasswordForgetLink />
+    </Row>
+    <Row>
+      <SignUpLink />
+    </Row>
+  </Container>
 );
 const INITIAL_STATE = {
   email: '',
@@ -65,23 +63,33 @@ class SignInFormBase extends Component {
 
     return (
       <Form onSubmit={this.onSubmit}>
-        <Form.Control
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <Form.Control
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <Button disabled={isInvalid} type="submit">
-          Sign In
+
+        <Form.Group controlId="email">
+          <Form.Control
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+          />
+        </Form.Group>
+
+
+        <Form.Group controlId="password">
+          <Form.Control
+            name="password"
+            value={password}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+          />
+        </Form.Group>
+
+        <Form.Group controlId="submitbtn">
+          <Button disabled={isInvalid} type="submit">
+            Sign In
         </Button>
+        </Form.Group>
 
         {error && <p>{error.message}</p>}
       </Form>

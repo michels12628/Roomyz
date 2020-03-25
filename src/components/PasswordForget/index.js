@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom';
 
@@ -7,10 +9,13 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const PasswordForgetPage = () => (
-  <div>
-    <h1>PasswordForget</h1>
-    <PasswordForgetForm />
-  </div>
+  <Container>
+    <h1>Reset your password</h1>
+    <p>Enter your user account's verified email address and we will send you a password reset link.</p>
+    <Row>
+      <PasswordForgetForm />
+    </Row>
+  </Container>
 );
 
 const INITIAL_STATE = {
@@ -51,8 +56,6 @@ class PasswordForgetFormBase extends Component {
 
     return (
       <Form>
-        <Form.Label>Forgot Password</Form.Label>
-
         <Form.Group onSubmit={this.onSubmit}>
           <Form.Control
             name="email"
@@ -63,10 +66,10 @@ class PasswordForgetFormBase extends Component {
           />
 
         </Form.Group>
-          <Button disabled={isInvalid} type="submit" size="sm">
-            Reset My Password
+        <Button disabled={isInvalid} type="submit" size="sm">
+          Reset My Password
         </Button>
-          {error && <p>{error.message}</p>}
+        {error && <p>{error.message}</p>}
       </Form>
     );
   }
