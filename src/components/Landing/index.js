@@ -6,9 +6,6 @@ const temp = () => (
   <p>
     This is Roomies. A simple platform to connect students.
   </p>
-  <p>
-    
-  </p>
 </Jumbotron>
 );
 
