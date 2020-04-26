@@ -1,6 +1,7 @@
 //firebase.js
 import app from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA8Rf8yvF7bxk6J0NtnD_m9Xy6dm-m-fDM",
@@ -12,12 +13,27 @@ const firebaseConfig = {
   appId: "1:459316952223:web:f9644f10e96bdb1c8436aa"
 };
 
+
+
   class Firebase {
     constructor(){
       app.initializeApp(firebaseConfig);
-
       this.auth = app.auth();
+      this.db = app.database();
     }
+
+  getAboutMe = (callback) => {
+    var listener = this.db.ref('users/' + this.auth.currentUser.uid + '/aboutMe');
+    listener.on('value', snapshot => {
+      callback(snapshot.val());
+      
+    })
+  };
+
+
+  updateAboutMe = (aboutMe) => {
+    this.db.ref('users/' + this.auth.currentUser.uid).update({aboutMe: aboutMe});
+  };
   
 
   //Authorizing API
@@ -34,5 +50,30 @@ const firebaseConfig = {
 
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
+
+      // *** Merge Auth and DB User API *** //
+  onAuthUserListener = (next, fallback) =>
+  this.auth.onAuthStateChanged(authUser => {
+    if (authUser) {
+      this.user(authUser.uid)
+        .once('value')
+        .then(snapshot => {
+          const dbUser = snapshot.val();
+          // default empty roles
+          if (!dbUser.roles) {
+            dbUser.roles = {};
+          }
+          // merge auth and db user
+          authUser = {
+            uid: authUser.uid,
+            email: authUser.email,
+            ...dbUser,
+          };
+          next(authUser);
+        });
+    } else {
+      fallback();
+    }
+  });
   }
     export default Firebase;

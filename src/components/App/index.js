@@ -13,6 +13,8 @@ import AdminPage from '../Admin';
 import Favorites from '../Favorites';
 import Filters from '../Filters';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import * as ROUTES from '../../constants/routes';
 import {withFirebase} from '../Firebase';
@@ -43,6 +45,7 @@ class App extends Component {
 
   render() {
     return (
+      <>
       <Router>
         <div>
           <Navigation authUser = {this.state.authUser} />
@@ -59,6 +62,8 @@ class App extends Component {
       <Route path={ROUTES.FILTERS} component={Filters}/>
         </div>
       </Router>
+      <ToastContainer />
+      </>
     )
   }
 
