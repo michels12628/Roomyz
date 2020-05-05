@@ -12,6 +12,7 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import Favorites from '../Favorites';
 import Filters from '../Filters';
+import Profile from '../Profile';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -60,6 +61,8 @@ class App extends Component {
       <Route path={ROUTES.ADMIN} component={AdminPage} />
       <Route path={ROUTES.FAVORITES} component={Favorites}/>
       <Route path={ROUTES.FILTERS} component={Filters}/>
+      <Route path={ROUTES.PROFILE} component={Profile}/>
+
         </div>
       </Router>
       <ToastContainer />

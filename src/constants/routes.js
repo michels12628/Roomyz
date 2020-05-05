@@ -7,3 +7,4 @@ export const ADMIN = '/admin';
 export const PASSWORD_FORGET = '/pw-forget';
 export const FAVORITES = '/favorites';
 export const FILTERS = '/filters';
+export const PROFILE = '/profile';
