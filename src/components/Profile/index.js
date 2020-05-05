@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { withAuthorization } from '../Session';
 
@@ -38,7 +40,6 @@ publish() {
 };
 
  render = () => (
-  <div>
     <Container>
 
 
@@ -47,6 +48,38 @@ publish() {
       
       <br/>
       
+    <Form.Label>Name</Form.Label>
+  <Row>
+    <Col>
+      <Form.Control placeholder="First name" />
+    </Col>
+    <Col>
+      <Form.Control placeholder="Last name" />
+    </Col>
+  </Row>
+
+  <br/>
+
+  <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label>School</Form.Label>
+    <Form.Control as="select">
+      <option>California State University, Bakersfield</option>
+      <option>California State University, Channel Islands</option>
+      <option>California State University, Chico</option>
+      <option>California State University, Dominguez Hills</option>
+      <option>California State University, Fullerton</option>
+      <option>California State University, Los Angeles</option>
+      <option>University of California, Berkeley</option>
+      <option>University of California, Irvine</option>
+      <option>University of California, Los Angeles</option>
+      <option>University of California, Riverside</option>
+      <option>University of California, San Diego</option>
+    </Form.Control>
+  </Form.Group>
+
+
+  <br/>
+
     <Form.Label>About Me</Form.Label>
       <br/>
 
@@ -63,7 +96,7 @@ publish() {
 </Form>
       
     </Container>
-    </div>
+
   );
 }
 
