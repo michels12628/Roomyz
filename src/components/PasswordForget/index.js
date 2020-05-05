@@ -56,6 +56,9 @@ class PasswordForgetFormBase extends Component {
 
     return (
       <Form>
+
+<Form.Label> 
+          Password Reset </Form.Label>
         <Form.Group onSubmit={this.onSubmit}>
           <Form.Control
             name="email"
