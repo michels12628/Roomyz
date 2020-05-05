@@ -60,7 +60,7 @@ publish() {
 
   <br/>
 
-  <Form.Group controlId="exampleForm.ControlSelect1">
+  <Form.Group controlId="exampleForm.School">
     <Form.Label>School</Form.Label>
     <Form.Control as="select">
       <option>California State University, Bakersfield</option>
@@ -76,6 +76,22 @@ publish() {
       <option>University of California, San Diego</option>
     </Form.Control>
   </Form.Group>
+
+
+  <br/>
+
+  <Form.Group controlId="exampleForm.Class">
+    <Form.Label>Class Level</Form.Label>
+    <Form.Control as="select">
+      <option>Freshman</option>
+      <option>Sophomore</option>
+      <option>Junior</option>
+      <option>Senior</option>
+      <option>Graduate</option>
+    </Form.Control>
+  </Form.Group>
+
+  
 
 
   <br/>
