@@ -16,7 +16,7 @@ const NavigationAuth = () => (
     <Navbar.Brand href="#home">
       <img
         alt=""
-        src="https://atlassian.design/server/images/avatars/project-128.png"
+        src="http://tpidv.com/tpidv.com/magento/atlassian-jira/WEB-INF/classes/avatars/cloud.svg"
         width="30"
         height="30"
         className="d-inline-block align-top"

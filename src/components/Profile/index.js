@@ -91,8 +91,6 @@ publish() {
     </Form.Control>
   </Form.Group>
 
-  
-
 
   <br/>
 
