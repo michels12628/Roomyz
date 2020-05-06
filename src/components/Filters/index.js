@@ -9,11 +9,8 @@ import Button from 'react-bootstrap/Button'
 const temp = () => (
     <Container>
 
-        <Alert variant="info">
-            <Alert.Heading>Filters</Alert.Heading>
-            <p>
-                Refine your results!
-  </p>
+<Alert variant="secondary">
+        Filter your results
         </Alert>
 
         <Row>

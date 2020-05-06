@@ -1,25 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container'
-import ListGroup from 'react-bootstrap/ListGroup'
 import Alert from 'react-bootstrap/Alert'
-const Favorites = () => (
-    <Container>
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import { withAuthorization } from '../Session';
 
-        <Alert variant="info">
+class Favorites extends React.Component {
+    constructor(props) {
+        super(props);
+    };
 
-            <Alert.Heading>Favorites</Alert.Heading>
-            <p>
-                These are your favorited potential roomies!
-                </p>
+
+    render = () => (
+        <Container>
+            <Alert variant="warning">
+                These are your favorite Roomies!
         </Alert>
-        <ListGroup variant="flush">
-            <ListGroup.Item>User profile picture, display name, class of 2020</ListGroup.Item>
-            <ListGroup.Item>User profile picture, display name, class of 2020</ListGroup.Item>
-            <ListGroup.Item>User profile picture, display name, class of 2020</ListGroup.Item>
-            <ListGroup.Item>User profile picture, display name, class of 2020</ListGroup.Item>
-        </ListGroup>
-    </Container>
-);
+            <br />
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="https://dailytitan.com/wp-content/uploads/2017/08/starbucks.jpg" />
+                <Card.Body>
+                    <Card.Title>Tuffy Titan</Card.Title>
+                    <Card.Text>
+                        Some quick example text to build on the card title and make up the bulk of
+                        the card's content.
+    </Card.Text>
+                </Card.Body>
+            </Card>
+            
+        </Container>
 
+    );
+}
 
-export default Favorites;
+const condition = authUser => !!authUser;
+export default withAuthorization(condition)(Favorites);

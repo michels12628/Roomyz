@@ -4,14 +4,10 @@ import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 import { withAuthorization } from '../Session';
 
 import { toast } from 'react-toastify';
-
-const RoomyzFirebaseUpload = () => {
-  const[image, setImage] = useState(null);
-
-}
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -64,11 +60,11 @@ publish() {
  render = () => (
     <Container>
 
+<Alert variant="light">
+        Profile Settings
+        </Alert>
 
     <Form>
-      <h3>Profile Settings</h3>
-      
-      <br/>
       
     <Form.Label>Name</Form.Label>
   <Row>
