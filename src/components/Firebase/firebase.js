@@ -22,8 +22,14 @@ const firebaseConfig = {
       this.db = app.database();
     }
 
-  getAboutMe = (callback) => {
-    var listener = this.db.ref('users/' + this.auth.currentUser.uid + '/aboutMe');
+  getProfileInfo = (callback) => {
+    if(!this.auth.currentUser)
+    {
+      setTimeout(() => this.getProfileInfo(callback), 100);
+      return;
+    }
+
+    var listener = this.db.ref('users/' + this.auth.currentUser.uid );
     listener.on('value', snapshot => {
       callback(snapshot.val());
       
@@ -31,9 +37,11 @@ const firebaseConfig = {
   };
 
 
-  updateAboutMe = (aboutMe) => {
-    this.db.ref('users/' + this.auth.currentUser.uid).update({aboutMe: aboutMe});
+
+  updateProfileInfo= (profileInfo) => {
+    this.db.ref('users/' + this.auth.currentUser.uid).update(profileInfo);
   };
+
   
 
   //Authorizing API
