@@ -18,12 +18,43 @@ class ProfilePage extends React.Component {
       lastName:'',
       school:'',
       standing:'',
+      image: '',
+      url: ''
     };
 
-
-
+    this.handleUpload = this.handleUpload.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.publish = this.publish.bind(this);
+  };
+
+  handleUpload = () => {
+    const uploadTask = this.props.firebase.storage.ref(`images/${this.state.image.name}`).put(this.state.image);
+    uploadTask.on(
+      "state_changed",
+      snapshot => {},
+      error => {
+        console.log(error);
+      },
+    () => {
+      this.props.firebase.storage
+      .ref("images")
+      .child(this.state.image.name)
+      .getDownloadURL()
+      .then(url => {
+        console.log(url);
+        this.setState({url});
+      })
+    }
+    )
+  };
+
+  handleImageChange = e => {
+    if(e.target.files[0]) {
+      this.setState({
+        image: e.target.files[0]
+      });
+      }
   };
 
   componentDidMount() {
@@ -118,22 +149,27 @@ publish() {
       <br/>
 
       <Form.Group controlId="exampleForm.aboutMe">
-      <Form.Control as="textarea" rows="3" value={this.state.aboutMe} id="aboutMe" onChange={this.handleChange} placeholder="Share a little about yourself">
-      </Form.Control>
+        <Form.Control as="textarea" rows="3" value={this.state.aboutMe} id="aboutMe" onChange={this.handleChange} placeholder="Share a little about yourself">
+        </Form.Control>
+      </Form.Group>
 
-  </Form.Group>
+        <br/>
+        <Button variant="light" onClick={this.publish}>
+          Publish
+          </Button>
+          <br/>
+          <h3> Listing Photos </h3>
+          <input onChange= {this.handleImageChange} type='file' name='Choose File' accept='image/png, image/jpeg'></input>
+          <br/>
+          <button onClick= {this.handleUpload} type='button'>Upload</button>
+          <br/>
 
-      <br/>
-      <Button variant="light" onClick={this.publish}>
-        Publish
-        </Button>
+  </Form>
+        <img src ={this.state.url}></img>
+      </Container>
 
-</Form>
-      
-    </Container>
-
-  );
-}
+    );
+  }
 
 const condition = authUser => !!authUser;
 export default withAuthorization(condition)(ProfilePage);

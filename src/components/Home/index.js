@@ -40,7 +40,11 @@ class Home extends React.Component {
             <Card.Body>
               <Card.Title>Tuffy Titan</Card.Title>
               <Card.Text>
-                Hi, I'm tuffy the titan and I'm looking for a cool Roomie.
+              Hi, I'm Tuffy the Titan and I'm looking for a cool Roomie!
+              <br/>
+              School: CSUF
+              <br />
+              Class of 2020
       </Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -58,6 +62,10 @@ class Home extends React.Component {
               <Card.Title>Lily Tran</Card.Title>
               <Card.Text>
                 I want a nice Roomie that also likes ice cream.
+                <br/>
+                School: CSUF
+                <br />
+                Class of 2020
               </Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -75,6 +83,10 @@ class Home extends React.Component {
               <Card.Title>Filbert Squirrel</Card.Title>
               <Card.Text>
                 Any Roomies that major in Art? Add me to your Favorites!
+                <br />
+                School: UCR
+                <br />
+                Class of 2024
       </Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -102,6 +114,10 @@ class Home extends React.Component {
               <Card.Title>Sherb Goat</Card.Title>
               <Card.Text>
                 Hi, I'm a sleepy sleeper. I like to sleep and want a Roomie who also sleeps a lot.
+                <br />
+                School: UCI
+                <br />
+                Class of 2021
       </Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -119,6 +135,10 @@ class Home extends React.Component {
               <Card.Title>Raymond Cat</Card.Title>
               <Card.Text>
                 Only cool Roomies can DM me.
+                <br />
+                School: UCSB
+                <br />
+                Class of 2022
               </Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -136,6 +156,10 @@ class Home extends React.Component {
               <Card.Title>Stephani Michel</Card.Title>
               <Card.Text>
                 Senior. CS Major. Looking for friendly roomie.
+                <br/>
+                School: CSUF
+                <br />
+                Class of 2021
       </Card.Text>
             </Card.Body>
             <Card.Footer>

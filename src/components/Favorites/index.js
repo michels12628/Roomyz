@@ -22,10 +22,14 @@ class Favorites extends React.Component {
                 <Card.Body>
                     <Card.Title>Tuffy Titan</Card.Title>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
+                        Hi, I'm Tuffy the Titan and I'm looking for a cool Roomie!
+                        <br />
+                        School: CSUF
+                        <br />
+                        Class of 2020 
     </Card.Text>
                 </Card.Body>
+                {/* <Button variant="light" size="sm"> See More </Button> */}
             </Card>
             
         </Container>
