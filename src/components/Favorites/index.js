@@ -24,7 +24,7 @@ class Favorites extends React.Component {
                     <Card.Text>
                         Hi, I'm Tuffy the Titan and I'm looking for a cool Roomie!
                         <br />
-                        School: CSUF
+                        California State University, Fullerton
                         <br />
                         Class of 2020 
     </Card.Text>

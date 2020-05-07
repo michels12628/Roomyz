@@ -158,10 +158,17 @@ publish() {
           Publish
           </Button>
           <br/>
-          <h3> Listing Photos </h3>
+        
+          <br/>
+          
+<Alert variant="light">
+        Upload a Photo
+        </Alert>
+
           <input onChange= {this.handleImageChange} type='file' name='Choose File' accept='image/png, image/jpeg'></input>
           <br/>
-          <button onClick= {this.handleUpload} type='button'>Upload</button>
+          <br/>
+          <Button variant="light" onClick= {this.handleUpload} type='button'>Upload</Button>
           <br/>
 
   </Form>
